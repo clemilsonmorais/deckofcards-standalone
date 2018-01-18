@@ -5,7 +5,6 @@ sys.dont_write_bytecode = True
 # Django specific settings
 import os
 
-
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cardsdb.settings")
 import django
 django.setup()
