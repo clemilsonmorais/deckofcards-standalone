@@ -8,7 +8,8 @@ import django
 django.setup()
 
 import json, random, datetime
-from cardsdb.models import Deck, card_to_dict
+from cardsdb.models import Deck
+from cardsutil import card_to_dict
 
 
 CARDS = ['AS', '2S', '3S', '4S', '5S', '6S', '7S', '8S', '9S', '0S', 'JS', 'QS', 'KS',
@@ -125,10 +126,10 @@ def add_to_pile(request, key, pile):
 
     if not deck.piles:
         deck.piles = {}
-        
+
     for key in deck.piles: #iterate through all the piles and remove any specified cards from those piles.
         p = deck.piles[key] #times like these that I question if I should have just made piles a model instead of a json field...
-        for card in cards: 
+        for card in cards:
             if card in pile:
                 p.remove(card)
 
@@ -207,7 +208,7 @@ def draw_from_pile(request, key, pile, bottom=""):
         cards = cards.upper()
         # Only allow real cards
         cards = [x for x in cards.split(',') if x in CARDS]
-   
+
         for card in cards:
             try:
                 p.remove(card)
@@ -234,7 +235,7 @@ def draw_from_pile(request, key, pile, bottom=""):
 
     deck.piles[pile] = p
     deck.save()
-    
+
     a = []
 
     for card in cards_in_response:
