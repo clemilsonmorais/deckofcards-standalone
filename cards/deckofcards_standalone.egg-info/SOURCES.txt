@@ -1,6 +1,0 @@
-README.md
-deckofcards_standalone.egg-info/PKG-INFO
-deckofcards_standalone.egg-info/SOURCES.txt
-deckofcards_standalone.egg-info/dependency_links.txt
-deckofcards_standalone.egg-info/pbr.json
-deckofcards_standalone.egg-info/top_level.txt
